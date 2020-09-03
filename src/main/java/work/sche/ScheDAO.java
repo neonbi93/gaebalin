@@ -13,24 +13,24 @@ public class ScheDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Map<String, String>> retrieveScheList(Map<String, String> scheParam){
-		return sqlSession.selectList("sche.retrieveScheList", scheParam);
+	public List<Map<String, String>> retrieveScheList(){
+		return sqlSession.selectList("sche.retrieveScheList");
 	}
 
 	public Map<String, String> retrieveSche(Map<String, String> scheParam){
 		return sqlSession.selectOne("sche.retrieveSche", scheParam);
 	}
 
-	public List<Map<String, String>> retrieveScheListByTime(Map<String, String> scheParam){
-		return sqlSession.selectList("sche.retrieveScheListByTime", scheParam);
+	public List<Map<String, String>> retrieveScheListByTime(){
+		return sqlSession.selectList("sche.retrieveScheListByTime");
 	}
 
-	public List<Map<String, String>> retrieveScheListByHits(Map<String, String> scheParam){
-		return sqlSession.selectList("sche.retrieveScheListByHits", scheParam);
+	public List<Map<String, String>> retrieveScheListByHits(){
+		return sqlSession.selectList("sche.retrieveScheListByHits");
 	}
 
-	public List<Map<String, String>> retrieveScheListByRating(Map<String, String> scheParam){
-		return sqlSession.selectList("sche.retrieveScheListByRating", scheParam);
+	public List<Map<String, String>> retrieveScheListByRating(){
+		return sqlSession.selectList("sche.retrieveScheListByRating");
 	}
 
 	public String retrieveMaxScheNo(){

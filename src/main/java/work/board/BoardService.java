@@ -5,13 +5,12 @@ import java.util.Map;
 
 
 public interface BoardService {
-	public List<Map<String, String>> retrieveBoardList(Map<String, String> boardParam);
+	public List<Map<String, String>> retrieveBoardList();
+	public List<Map<String, String>> retrieveBoardListByTime();
+	public List<Map<String, String>> retrieveBoardListByHits();
+	public List<Map<String, String>> retrieveBoardListByRating();
 
 	public Map<String, String> retrieveBoard(Map<String, String> boardParam);
-
-	public List<Map<String, String>> retrieveBoardListByTime(Map<String, String> boardParam);
-	public List<Map<String, String>> retrieveBoardListByHits(Map<String, String> boardParam);
-	public List<Map<String, String>> retrieveBoardListByRating(Map<String, String> boardParam);
 
 	public String retrieveMaxBoardNo();
 

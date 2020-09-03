@@ -6,8 +6,8 @@ import java.util.Map;
 
 public interface EventService {
 	public List<Map<String, String>> retrieveEventList(Map<String, String> eventParam);
-	public List<Map<String, String>> retrieveEventMain(Map<String, String> eventParam);
-	public List<Map<String, String>> retrieveEventListForM(Map<String, String> eventParam);
+	public List<Map<String, String>> retrieveEventMain();
+	public List<Map<String, String>> retrieveEventListForM();
 	
 	public Map<String, String> retrieveEvent(Map<String, String> eventParam);
 

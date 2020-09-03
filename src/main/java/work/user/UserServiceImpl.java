@@ -17,6 +17,10 @@ public class UserServiceImpl implements UserService{
 	public void setUserDAO(UserDAO dao){
 		this.UserDAO = dao;
 	}
+	
+	public List<Map<String, String>> retrieveUserListForM(){
+		return UserDAO.retrieveUserListForM();
+	}
 
 	public String retrieveUserId(String email){
 		return UserDAO.retrieveUserId(email);
@@ -42,8 +46,8 @@ public class UserServiceImpl implements UserService{
 		return UserDAO.logincheck(id, pw);
 	}
 
-	public void deleteUser(String id)  {
-		UserDAO.deleteUser(id);
+	public void deleteUser(Map<String, String> userParam)  {
+		UserDAO.deleteUser(userParam);
 	}
 
 	public void createUser(UserBean bean)  {
@@ -57,30 +61,5 @@ public class UserServiceImpl implements UserService{
 	public List<Map<String, String>> retrievePostByDong(Map<String, String> userParam){
 		return UserDAO.retrievePostByDong(userParam);
 	}
-
-	public void updatePlusRentBookCnt(Map<String, String> userParam){
-		UserDAO.updatePlusRentBookCnt(userParam);
-	}
-
-	public void updateMinusRentBookCnt(Map<String, String> userParam){
-		UserDAO.updateMinusRentBookCnt(userParam);
-	}
-
-	public void updatePlusReserveBookCnt(Map<String, String> userParam){
-		UserDAO.updatePlusReserveBookCnt(userParam);
-	}
-
-	public void updateMinusReserveBookCnt(Map<String, String> userParam){
-		UserDAO.updateMinusReserveBookCnt(userParam);
-	}
-
-	public Map<String,String> retrieveRentBookCnt(Map<String, String> userParam){
-		return UserDAO.retrieveRentBookCnt(userParam);
-	}
-
-	public Map<String,String> retrieveReserveBookCnt(Map<String, String> userParam){
-		return UserDAO.retrieveReserveBookCnt(userParam);
-	}
-
 
 }

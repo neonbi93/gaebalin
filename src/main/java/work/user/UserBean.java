@@ -12,6 +12,7 @@ public class UserBean implements Serializable{
 	private String phoneNum;         //전화번호뒷자리
 	private String address;          //주소
 	private String grade;			 //회원등급
+	private String connectDate;		//최근 접속날짜
 	private String nickName;		//닉네임
 
 	public UserBean() {
@@ -21,7 +22,7 @@ public class UserBean implements Serializable{
 	public UserBean(String userCode, String id, String pw, String email,
 			String userImage, String postNum,
 			String phoneNum, String address,
-			String grade, String nickName) {
+			String grade, String connectDate, String nickName) {
 		super();
 		this.userCode = userCode;
 		this.id = id;
@@ -32,6 +33,7 @@ public class UserBean implements Serializable{
 		this.phoneNum = phoneNum;
 		this.address = address;
 		this.grade = grade;
+		this.connectDate = connectDate;
 		this.nickName = nickName;
 	}
 
@@ -108,6 +110,14 @@ public class UserBean implements Serializable{
 		this.grade = grade;
 	}
 
+	public String getConnectDate() {
+		return connectDate;
+	}
+
+	public void setConnectDate(String connectDate) {
+		this.connectDate = connectDate;
+	}
+
 	public String getNickName() {
 		return nickName;
 	}
@@ -137,6 +147,8 @@ public class UserBean implements Serializable{
 		builder.append(address);
 		builder.append(", grade=");
 		builder.append(grade);
+		builder.append(", connectDate=");
+		builder.append(connectDate);
 		builder.append(", nickName=");
 		builder.append(nickName);
 		builder.append("]");

@@ -13,24 +13,24 @@ public class BoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Map<String, String>> retrieveBoardList(Map<String, String> boardParam){
-		return sqlSession.selectList("board.retrieveBoardList", boardParam);
+	public List<Map<String, String>> retrieveBoardList(){
+		return sqlSession.selectList("board.retrieveBoardList");
+	}
+
+	public List<Map<String, String>> retrieveBoardListByTime(){
+		return sqlSession.selectList("board.retrieveBoardListByTime");
+	}
+
+	public List<Map<String, String>> retrieveBoardListByHits(){
+		return sqlSession.selectList("board.retrieveBoardListByHits");
+	}
+
+	public List<Map<String, String>> retrieveBoardListByRating(){
+		return sqlSession.selectList("board.retrieveBoardListByRating");
 	}
 
 	public Map<String, String> retrieveBoard(Map<String, String> boardParam){
 		return sqlSession.selectOne("board.retrieveBoard", boardParam);
-	}
-
-	public List<Map<String, String>> retrieveBoardListByTime(Map<String, String> boardParam){
-		return sqlSession.selectList("board.retrieveBoardListByTime", boardParam);
-	}
-
-	public List<Map<String, String>> retrieveBoardListByHits(Map<String, String> boardParam){
-		return sqlSession.selectList("board.retrieveBoardListByHits", boardParam);
-	}
-
-	public List<Map<String, String>> retrieveBoardListByRating(Map<String, String> boardParam){
-		return sqlSession.selectList("board.retrieveBoardListByRating", boardParam);
 	}
 
 	public String retrieveMaxBoardNo(){

@@ -17,12 +17,12 @@ public class EventServiceImpl implements EventService {
 		return eventDAO.retrieveEventList(eventParam);
 	}
 
-	public List<Map<String, String>> retrieveEventMain(Map<String, String> eventParam){
-		return eventDAO.retrieveEventMain(eventParam);
+	public List<Map<String, String>> retrieveEventMain(){
+		return eventDAO.retrieveEventMain();
 	}
 	
-	public List<Map<String, String>> retrieveEventListForM(Map<String, String> eventParam){
-		return eventDAO.retrieveEventListForM(eventParam);
+	public List<Map<String, String>> retrieveEventListForM(){
+		return eventDAO.retrieveEventListForM();
 	}
 	
 	public Map<String, String> retrieveEvent(Map<String, String> eventParam){

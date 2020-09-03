@@ -163,7 +163,6 @@ public class UserController implements HttpSessionListener{
 					+ " <a href='login.jsp'>로그인 페이지로 이동</a></p>"
 					+ "</div>";
 		}
-
 		idMap.put("checkMsg", checkMsg);
 
 		HttpHeaders resHeader = new HttpHeaders();
@@ -197,6 +196,18 @@ public class UserController implements HttpSessionListener{
 			userService.createUser(bean);
 			mv.setViewName("/user/login");
 		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/work/user/retrieveUserListForM.do", method=RequestMethod.GET)
+	public ModelAndView retrieveUserListForM(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView();
+		
+		List<Map<String, String>> dsUserList = userService.retrieveUserListForM();
+
+		mv.addObject("dsUserList", dsUserList);
+		
+		mv.setViewName("/user/userListR");
 		return mv;
 	}
 
@@ -385,8 +396,6 @@ public class UserController implements HttpSessionListener{
 		System.out.println(kname);
 		System.out.println(kimage);
 		
-		
-        
         UserBean userBean = userService.retrieveSessionInfo(id);
 		
 		try {
@@ -450,6 +459,30 @@ public class UserController implements HttpSessionListener{
 		}else{
 			userService.createUser(bean);
 			mv.setViewName("redirect:/work/user/goLogin.do");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/work/user/deleteUser.do", method=RequestMethod.GET)
+	public ModelAndView deleteUser(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		String grade = (String) session.getAttribute("grade");
+		Map<String, String> userParam = new HashMap<String, String>();
+
+		String userCode = request.getParameter("userCode");
+
+		userParam.put("userCode", userCode);
+
+		userService.deleteUser(userParam);
+		
+		if(grade.equals("M")) {
+			mv.setViewName("redirect:/work/user/retrieveUserListForM.do");
+		} else {
+			session.removeAttribute("id");
+			session.removeAttribute("userCode");
+			session.invalidate();
+			mv.setViewName("redirect:/work/product/goMain.do");
 		}
 		return mv;
 	}

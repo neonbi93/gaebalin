@@ -44,7 +44,7 @@
 			ORDER BY PRODUCT.PRODUCT_REG_DATE DESC
 	</select>
 	
-	<select id="retrieveProductListPop" resultType="map" parameterType="map">
+	<select id="retrieveProductListPop" resultType="map">
 		<![CDATA[
 			/*	retrieveProductList	*/
 			SELECT PRODUCT.PRODUCT_CODE

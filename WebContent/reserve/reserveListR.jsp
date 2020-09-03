@@ -77,7 +77,7 @@
 		        }
 		    });			
 		}
-    }
+    };
     */
     
 	function fn_finalBuy(paramReserveNo, paramEventNo, paramReservePrice, paramReservePop, paramEventTitle,
@@ -85,11 +85,11 @@
 		if(confirm("결제하시겠습니까?")){
         	location.href = "${context}/work/reserve/updateFinalBuy.do?reserveNo=" + paramReserveNo + "&reservePop=" + paramReservePop + "&eventNo=" + paramEventNo;
 		}
-    }
+    };
 	
 	function fn_updateReserve(paramReserveNo){
 		location.href = "${context}/work/reserve/updateReserve.do?reserveNo=" + paramReserveNo;
-	}
+	};
 	
 	/*  + "&eventNo=" + paramEventNo + "&userCode=" + paramUserCode */
 	function fn_deletePreReserve(paramReserveNo){
@@ -97,17 +97,17 @@
 			alert("예약이 취소됐습니다.");
 			location.href = "${context}/work/reserve/deletePreReserve.do?reserveNo=" + paramReserveNo;
 		}
-	}
+	};
 	
 	function fn_deleteReserve(paramReserveNo, paramEventNo, paramReservePop){
 		if(confirm("예약 결제을 취소하겠습니까??")){
 			location.href = "${context}/work/reserve/deleteReserve.do?reserveNo=" + paramReserveNo + "&reservePop=" + paramReservePop + "&eventNo=" + paramEventNo;
 		}
-	}
+	};
 	
     function fn_review(paramEventNo){
     	location.href = "${context}/work/event/retrieveEvent.do?eventNo=" + paramEventNo;
-    }
+    };
     
 	</script>
 </head>

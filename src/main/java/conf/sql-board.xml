@@ -12,7 +12,7 @@
 		<result property="boardRating" column="BOARD_RATING" />
 	</resultMap>
 
-	<select id="retrieveBoardList" parameterType="map" resultType="map">
+	<select id="retrieveBoardList" resultType="map">
 		<![CDATA[
 		/*	retrieveBoardList	*/
 			SELECT BOARD.BOARD_NO
@@ -35,7 +35,7 @@
 		]]>
 	</select>
 
-	<select id="retrieveBoardListByTime" parameterType="map" resultType="map">
+	<select id="retrieveBoardListByTime" resultType="map">
 		<![CDATA[
 		/*	retrieveBoardListByTime	*/
 			SELECT T.*
@@ -62,7 +62,7 @@
 		]]>
 	</select>
 
-	<select id="retrieveBoardListByHits" parameterType="map" resultType="map">
+	<select id="retrieveBoardListByHits" resultType="map">
 		<![CDATA[
 		/*	retrieveBoardListByHits	*/
 			SELECT T.*
@@ -89,7 +89,7 @@
 		]]>
 	</select>
 
-	<select id="retrieveBoardListByRating" parameterType="map" resultType="map">
+	<select id="retrieveBoardListByRating" resultType="map">
 		<![CDATA[
 		/*	retrieveBoardListByRating	*/
 			SELECT T.*

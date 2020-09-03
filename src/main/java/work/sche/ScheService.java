@@ -5,12 +5,12 @@ import java.util.Map;
 
 
 public interface ScheService {
-	public List<Map<String, String>> retrieveScheList(Map<String, String> scheParam);
+	public List<Map<String, String>> retrieveScheList();
 
 	public Map<String, String> retrieveSche(Map<String, String> scheParam);
 
-	public List<Map<String, String>> retrieveScheListByTime(Map<String, String> scheParam);
-	public List<Map<String, String>> retrieveScheListByHits(Map<String, String> scheParam);
+	public List<Map<String, String>> retrieveScheListByTime();
+	public List<Map<String, String>> retrieveScheListByHits();
 
 	public String retrieveMaxScheNo();
 

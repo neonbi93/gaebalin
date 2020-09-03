@@ -17,8 +17,8 @@ public class ProductDAO {
 		return sqlSession.selectList("product.retrieveProductList", productParam);
 	}
 
-	public List<Map<String, String>> retrieveProductListPop(Map<String, String> productParam){
-		return sqlSession.selectList("product.retrieveProductListPop", productParam);
+	public List<Map<String, String>> retrieveProductListPop(){
+		return sqlSession.selectList("product.retrieveProductListPop");
 	}
 
 	public List<Map<String, String>> retrieveProductListForMain(){

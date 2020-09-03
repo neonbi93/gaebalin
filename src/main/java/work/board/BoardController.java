@@ -97,9 +97,7 @@ public class BoardController {
 	public ModelAndView retrieveBoardList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
-		Map<String, String> boardParam = new HashMap<String, String>();
-
-		List<Map<String, String>> dsBoardList = boardService.retrieveBoardList(boardParam);
+		List<Map<String, String>> dsBoardList = boardService.retrieveBoardList();
 
 		mv.addObject("dsBoardList", dsBoardList);
 		mv.setViewName("/board/boardListR");

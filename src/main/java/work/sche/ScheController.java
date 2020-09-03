@@ -93,9 +93,7 @@ public class ScheController {
 	public ModelAndView retrieveScheList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
-		Map<String, String> scheParam = new HashMap<String, String>();
-
-		List<Map<String, String>> dsScheList = scheService.retrieveScheList(scheParam);
+		List<Map<String, String>> dsScheList = scheService.retrieveScheList();
 
 		mv.addObject("dsScheList", dsScheList);
 		mv.setViewName("/sche/scheListR");

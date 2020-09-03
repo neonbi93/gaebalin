@@ -17,6 +17,10 @@ public class UserDAO {
 	public List<UserBean> retrieveUserList()  {
 		return sqlSession.selectList("user.retrieveUserList");
 	}
+	
+	public List<Map<String, String>> retrieveUserListForM(){
+		return sqlSession.selectList("user.retrieveUserListForM");
+	}
 
 	public String retrieveUserId(String email){
 		return sqlSession.selectOne("user.retrieveUserId", email);
@@ -52,8 +56,8 @@ public class UserDAO {
 		return check;
 	}
 
-	public void deleteUser(String id)  {
-		sqlSession.delete("user.deleteUser",id);
+	public void deleteUser(Map<String, String> userParam)  {
+		sqlSession.delete("user.deleteUser", userParam);
 	}
 
 	public void createUser(UserBean bean)  {
@@ -68,27 +72,4 @@ public class UserDAO {
 		return sqlSession.selectList("user.retrievePostByDong", userParam);
 	}
 
-	public void updatePlusRentBookCnt(Map<String, String> userParam){
-		sqlSession.update("user.updatePlusRentBookCnt", userParam);
-	}
-
-	public void updateMinusRentBookCnt(Map<String, String> userParam){
-		sqlSession.update("user.updateMinusRentBookCnt", userParam);
-	}
-
-	public void updatePlusReserveBookCnt(Map<String, String> userParam){
-		sqlSession.update("user.updatePlusReserveBookCnt", userParam);
-	}
-
-	public void updateMinusReserveBookCnt(Map<String, String> userParam){
-		sqlSession.update("user.updateMinusReserveBookCnt", userParam);
-	}
-
-	public Map<String,String> retrieveRentBookCnt(Map<String, String> userParam){
-		return sqlSession.selectOne("user.retrieveRentBookCnt", userParam);
-	}
-
-	public Map<String,String> retrieveReserveBookCnt(Map<String, String> userParam){
-		return sqlSession.selectOne("user.retrieveReserveBookCnt", userParam);
-	}
 }

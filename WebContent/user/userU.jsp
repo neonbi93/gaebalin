@@ -55,6 +55,8 @@
 
 		var userImage = '${dsUser.userImage}';
 		userImage = userImage.replace(/"/gi, "");
+		
+		console.log(userImage);
 
 		$("#phone1").val(phoneArr[0]);
 		$("#phone2").val(phoneArr[1]);
@@ -67,7 +69,7 @@
 		$("#userImage").val(userImage);
 
 		$("#name").val('${dsUser.nickName}');
-	}
+	};
 
 	function fn_save() {
 		if (!fn_validation())
@@ -85,7 +87,7 @@
 			alert("정보가 수정됐습니다.");
 			$("#joinFrm").submit();
 		}
-	}
+	};
 
 	function fn_upload() {
 		$("#ajaxform").ajaxSubmit({
@@ -103,7 +105,16 @@
 				alert(error);
 			}
 		});
-	}
+	};
+	
+	function fn_deleteUser(paramUserCode){
+		if(confirm("정말로 탈퇴하시겠습니까?")){
+			if(confirm("탈퇴한 정보는 되돌릴 수 없습니다.")){
+				alert("탈퇴 처리가 완료됐습니다.");
+				location.href = "${context}/work/user/deleteUser.do?userCode=" + paramUserCode;
+			}
+		}
+	};
 
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(
@@ -156,7 +167,7 @@
 								.focus();
 					}
 				}).open();
-	}
+	};
 </script>
 </head>
 <body>
@@ -277,6 +288,9 @@
 				<div class="col-md-1">
 					<button class="btn btn-primary" type="button" name="btnSubmit"
 						id="btnSubmit" onclick="fn_save()">등록하기</button>
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-primary" type="button" onclick="fn_deleteUser('${dsUser.userCode}')">삭제하기</button>
 				</div>
 			</div>
 		</form>

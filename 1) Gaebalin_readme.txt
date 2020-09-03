@@ -15,7 +15,7 @@ alter session set "_ORACLE_SCRIPT"=true;
 CREATE USER gaebalin IDENTIFIED BY gaebalin;
   GRANT CONNECT, RESOURCE TO gaebalin;
   GRANT ALTER SESSION TO gaebalin;
-  GRANT UNLIMITED TABLTSPACE TO gaebalin;
+  GRANT UNLIMITED TABLESPACE TO gaebalin;
 
 3-2. SQL 구조에 수정이 생긴 경우 급한 경우가 아니라면 유저를 삭제했다가 다시 만들어서 권한을 주는게 좋음.
 
@@ -25,7 +25,7 @@ DROP USER gaebalin cascade;
 CREATE USER gaebalin IDENTIFIED BY gaebalin;
 GRANT CONNECT, RESOURCE TO gaebalin;
 GRANT ALTER SESSION TO gaebalin;
-GRANT UNLIMITED TABLTSPACE TO gaebalin;
+GRANT UNLIMITED TABLESPACE TO gaebalin;
 
 4. gaebalin.sql파일의 쿼리들을 gaebalin/gaebalin 계정에 모두 commit 해야함
 

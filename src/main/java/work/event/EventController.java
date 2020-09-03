@@ -55,9 +55,7 @@ public class EventController {
 	public ModelAndView retrieveEventListForManage(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
-		Map<String, String> eventParam = new HashMap<String, String>();
-
-		List<Map<String, String>> dsEventList = eventService.retrieveEventListForM(eventParam);
+		List<Map<String, String>> dsEventList = eventService.retrieveEventListForM();
 
 		mv.addObject("dsEventList", dsEventList);
 		mv.setViewName("/stockmanage/stockEventListR");

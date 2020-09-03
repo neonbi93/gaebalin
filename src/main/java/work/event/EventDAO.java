@@ -17,12 +17,12 @@ public class EventDAO {
 		return sqlSession.selectList("event.retrieveEventList", eventParam);
 	}
 
-	public List<Map<String, String>> retrieveEventMain(Map<String, String> eventParam){
-		return sqlSession.selectList("event.retrieveEventMain", eventParam);
+	public List<Map<String, String>> retrieveEventMain(){
+		return sqlSession.selectList("event.retrieveEventMain");
 	}
 	
-	public List<Map<String, String>> retrieveEventListForM(Map<String, String> eventParam){
-		return sqlSession.selectList("event.retrieveEventListForM", eventParam);
+	public List<Map<String, String>> retrieveEventListForM(){
+		return sqlSession.selectList("event.retrieveEventListForM");
 	}
 	
 	public Map<String, String> retrieveEvent(Map<String, String> eventParam){

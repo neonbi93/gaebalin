@@ -11,7 +11,7 @@
 		<result property="scheHits" column="SCHE_HITS" />
 	</resultMap>
 
-	<select id="retrieveScheList" parameterType="map" resultType="map">
+	<select id="retrieveScheList" resultType="map">
 		<![CDATA[
 		/*	retrieveScheList	*/
 			SELECT SCHE.SCHE_NO
@@ -32,7 +32,7 @@
 		]]>
 	</select>
 
-	<select id="retrieveScheListByTime" parameterType="map" resultType="map">
+	<select id="retrieveScheListByTime" resultType="map">
 		<![CDATA[
 		/*	retrieveScheListByTime	*/
 			SELECT T.*
@@ -58,7 +58,7 @@
 		]]>
 	</select>
 
-	<select id="retrieveScheListByHits" parameterType="map" resultType="map">
+	<select id="retrieveScheListByHits" resultType="map">
 		<![CDATA[
 		/*	retrieveScheListByHits	*/
 			SELECT T.*

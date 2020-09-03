@@ -12,24 +12,24 @@ public class ScheServiceImpl implements ScheService{
 	@Resource(name = "scheDAO")
 	private ScheDAO scheDAO;
 
-	public List<Map<String, String>> retrieveScheList(Map<String, String> scheParam){
-		return scheDAO.retrieveScheList(scheParam);
+	public List<Map<String, String>> retrieveScheList(){
+		return scheDAO.retrieveScheList();
 	}
 
 	public Map<String, String> retrieveSche(Map<String, String> scheParam){
 		return scheDAO.retrieveSche(scheParam);
 	}
 
-	public List<Map<String, String>> retrieveScheListByTime(Map<String, String> scheParam){
-		return scheDAO.retrieveScheListByTime(scheParam);
+	public List<Map<String, String>> retrieveScheListByTime(){
+		return scheDAO.retrieveScheListByTime();
 	}
 
-	public List<Map<String, String>> retrieveScheListByHits(Map<String, String> scheParam){
-		return scheDAO.retrieveScheListByHits(scheParam);
+	public List<Map<String, String>> retrieveScheListByHits(){
+		return scheDAO.retrieveScheListByHits();
 	}
 
-	public List<Map<String, String>> retrieveScheListByRating(Map<String, String> scheParam){
-		return scheDAO.retrieveScheListByRating(scheParam);
+	public List<Map<String, String>> retrieveScheListByRating(){
+		return scheDAO.retrieveScheListByRating();
 	}
 
 	public String retrieveMaxScheNo(){

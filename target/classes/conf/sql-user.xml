@@ -9,9 +9,10 @@
 	    <result property="email" column="EMAIL"/>
 	    <result property="userImage" column="USER_IMAGE"/>
 	    <result property="postNum" column="POST_NUM"/>
-	    <result property="phoneCd" column="PHONE_CD"/>
 	    <result property="phoneNum" column="PHONE_NUM"/>
 	    <result property="address" column="ADDRESS"/>
+	    <result property="grade" column="GRADE"/>
+	    <result property="connectDate" column="CONNECT_DATE "/>
 	    <result property="nickName" column="NICK_NAME"/>
 	</resultMap>
 
@@ -20,10 +21,40 @@
 			SELECT * FROM TB_COM_USER
 		]]>
 	</select>
-
+	
+	<select id="retrieveUserListForM" resultType="map">
+		<![CDATA[
+			/*	retrieveUserListForM	*/
+			SELECT USER_CODE
+				, ID
+				, PW
+				, EMAIL
+				, POST_NUM
+				, PHONE_NUM
+				, ADDRESS
+				, GRADE
+				, CONNECT_DATE
+				, NICK_NAME
+			FROM TB_COM_USER
+			WHERE 1=1
+			]]>
+			ORDER BY CONNECT_DATE DESC
+	</select>
+	
 	<select id="retrieveUser" parameterType="string" resultMap="userResult">
 		<![CDATA[
-			SELECT * FROM TB_COM_USER WHERE ID = #{id}
+			SELECT USER_CODE
+				, ID
+				, PW
+				, EMAIL
+				, USER_IMAGE
+				, POST_NUM
+				, PHONE_NUM
+				, ADDRESS
+				, GRADE
+				, CONNECT_DATE
+				, NICK_NAME
+			FROM TB_COM_USER WHERE ID = #{id}
 		]]>
 	</select>
 
@@ -95,9 +126,9 @@
 		]]>
 	</update>
 
-	<delete id="deleteUser" parameterType="string">
+	<delete id="deleteUser" parameterType="map">
 		<![CDATA[
-			DELETE FROM TB_COM_USER WHERE ID = #{id}
+			DELETE FROM TB_COM_USER WHERE USER_CODE = #{userCode}
 		]]>
 	</delete>
 

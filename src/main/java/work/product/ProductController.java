@@ -127,9 +127,6 @@ public class ProductController {
 	public ModelAndView goMain(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, String> eventParam = new HashMap<String, String>();
-		Map<String, String> boardParam = new HashMap<String, String>();
-		Map<String, String> scheParam = new HashMap<String, String>();
 		
 		String userAgent = request.getHeader("User-Agent");
 		System.out.println("USER-AGENT : " + userAgent);
@@ -138,9 +135,9 @@ public class ProductController {
 		String deviceType = "";
 		  if (device.isNormal()) {
 			List<Map<String, String>> dsProductList = productService.retrieveProductListForMain();
-			List<Map<String, String>> dsEventList = eventService.retrieveEventMain(eventParam);
-			List<Map<String, String>> dsBoardList = boardService.retrieveBoardListByTime(boardParam);
-			List<Map<String, String>> dsScheList = scheService.retrieveScheListByTime(scheParam);
+			List<Map<String, String>> dsEventList = eventService.retrieveEventMain();
+			List<Map<String, String>> dsBoardList = boardService.retrieveBoardListByTime();
+			List<Map<String, String>> dsScheList = scheService.retrieveScheListByTime();
 			
 			Map<String, String> dsPop = productService.retrieveProductPop();
 			
@@ -186,9 +183,7 @@ public class ProductController {
 	public ModelAndView retrieveProductListPop(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
-		Map<String, String> productParam = new HashMap<String, String>();
-
-		List<Map<String, String>> dsProductListPop = productService.retrieveProductListPop(productParam);
+		List<Map<String, String>> dsProductListPop = productService.retrieveProductListPop();
 
 		mv.addObject("dsProductListPop", dsProductListPop);
 		mv.setViewName("/product/productListPop");

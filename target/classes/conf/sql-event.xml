@@ -47,7 +47,7 @@
 			ORDER BY EVENT.EVENT_REG_DATE DESC
 	</select>
 	
-	<select id="retrieveEventMain" resultType="map" parameterType="map">
+	<select id="retrieveEventMain" resultType="map">
 		<![CDATA[
 			/*	retrieveEventMain	*/
 			SELECT EVENT.EVENT_NO
@@ -66,7 +66,7 @@
 			ORDER BY EVENT.EVENT_CUR_POP DESC
 	</select>
 	
-	<select id="retrieveEventListForM" resultType="map" parameterType="map">
+	<select id="retrieveEventListForM" resultType="map">
 		<![CDATA[
 			/*	retrieveEventListForM	*/
 			SELECT EVENT.EVENT_NO

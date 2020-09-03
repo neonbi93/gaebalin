@@ -16,8 +16,8 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.retrieveProductList(productParam);
 	}
 
-	public List<Map<String, String>> retrieveProductListPop(Map<String, String> productParam){
-		return productDAO.retrieveProductListPop(productParam);
+	public List<Map<String, String>> retrieveProductListPop(){
+		return productDAO.retrieveProductListPop();
 	}
 
 	public List<Map<String, String>> retrieveProductListForMain(){
