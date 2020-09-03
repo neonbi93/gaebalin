@@ -1,25 +1,25 @@
-* ¼­¹ö¸¦ ÀÍ½ºÆ÷Æ®ÇÒ °æ¿ì ¿À·ù°¡ ÀÚÁÖ ³ª¼­ ´ÙÀÌ³ª¹ÍÀ¥¸¸ ÀÍ½ºÆ÷Æ®ÇÏ¹Ç·Î ÀÓÆ÷Æ®ÇØ¼­ ½ÇÇà½ÃÅ³¶§´Â ¼­¹ö¸¦
-»ý¼ºÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
-»çÁøÀÌ ¾È³ª¿Ã °æ¿ì ¼­¹ö ¿À¹öºä¿¡¼­ Modules¸¦ Å¬¸¯ÇÑ ÈÄ ÇØ´ç µð·ºÅä¸® °æ·Î¸¦ ±âº» °æ·Î('/')·Î ÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+* ì„œë²„ë¥¼ ìµìŠ¤í¬íŠ¸í•  ê²½ìš° ì˜¤ë¥˜ê°€ ìžì£¼ ë‚˜ì„œ ë‹¤ì´ë‚˜ë¯¹ì›¹ë§Œ ìµìŠ¤í¬íŠ¸í•˜ë¯€ë¡œ ìž„í¬íŠ¸í•´ì„œ ì‹¤í–‰ì‹œí‚¬ë•ŒëŠ” ì„œë²„ë¥¼
+ìƒì„±í•´ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
+ì‚¬ì§„ì´ ì•ˆë‚˜ì˜¬ ê²½ìš° ì„œë²„ ì˜¤ë²„ë·°ì—ì„œ Modulesë¥¼ í´ë¦­í•œ í›„ í•´ë‹¹ ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ê¸°ë³¸ ê²½ë¡œ('/')ë¡œ í•´ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 
-1. ÄÄÆÄÀÏ ½ÇÇà È¯°æ = JAVA SDK 1.8, ORACLE 12c, TOMCAT 9.0 , eclipse IDE
+1. ì»´íŒŒì¼ ì‹¤í–‰ í™˜ê²½ = JAVA SDK 1.8, ORACLE 12c, TOMCAT 9.0 , eclipse IDE
 
-2. Àû¿ë ±â¼ú = Spring MVC, Mybatis, JAVA, JSP, HTML, CSS, BootStrap, Jquery(AJAX, JSON) , OracleDB
+2. ì ìš© ê¸°ìˆ  = Spring MVC, Mybatis, JAVA, JSP, HTML, CSS, BootStrap, Jquery(AJAX, JSON) , OracleDB
 
-3. Oracle12c¿¡ ±ÇÇÑ ºÎ¿©
-À¯Àú »ý¼ºÀ» À§ÇÑ ÃÊ±â ¼³Á¤
+3. Oracle12cì— ê¶Œí•œ ë¶€ì—¬
+ìœ ì € ìƒì„±ì„ ìœ„í•œ ì´ˆê¸° ì„¤ì •
 alter session set "_ORACLE_SCRIPT"=true;
 
-3-1.À¯Àú »ý¼º ¹× ±ÇÇÑ ºÎ¿©
+3-1.ìœ ì € ìƒì„± ë° ê¶Œí•œ ë¶€ì—¬
 
 CREATE USER gaebalin IDENTIFIED BY gaebalin;
   GRANT CONNECT, RESOURCE TO gaebalin;
   GRANT ALTER SESSION TO gaebalin;
   GRANT UNLIMITED TABLTSPACE TO gaebalin;
 
-3-2. SQL ±¸Á¶¿¡ ¼öÁ¤ÀÌ »ý±ä °æ¿ì ±ÞÇÑ °æ¿ì°¡ ¾Æ´Ï¶ó¸é À¯Àú¸¦ »èÁ¦Çß´Ù°¡ ´Ù½Ã ¸¸µé¾î¼­ ±ÇÇÑÀ» ÁÖ´Â°Ô ÁÁÀ½.
+3-2. SQL êµ¬ì¡°ì— ìˆ˜ì •ì´ ìƒê¸´ ê²½ìš° ê¸‰í•œ ê²½ìš°ê°€ ì•„ë‹ˆë¼ë©´ ìœ ì €ë¥¼ ì‚­ì œí–ˆë‹¤ê°€ ë‹¤ì‹œ ë§Œë“¤ì–´ì„œ ê¶Œí•œì„ ì£¼ëŠ”ê²Œ ì¢‹ìŒ.
 
-cmdÃ¢¿¡¼­
+cmdì°½ì—ì„œ
 sqlplus system/System1234
 DROP USER gaebalin cascade;
 CREATE USER gaebalin IDENTIFIED BY gaebalin;
@@ -27,91 +27,91 @@ GRANT CONNECT, RESOURCE TO gaebalin;
 GRANT ALTER SESSION TO gaebalin;
 GRANT UNLIMITED TABLTSPACE TO gaebalin;
 
-4. gaebalin.sqlÆÄÀÏÀÇ Äõ¸®µéÀ» gaebalin/gaebalin °èÁ¤¿¡ ¸ðµÎ commit ÇØ¾ßÇÔ
+4. gaebalin.sqlíŒŒì¼ì˜ ì¿¼ë¦¬ë“¤ì„ gaebalin/gaebalin ê³„ì •ì— ëª¨ë‘ commit í•´ì•¼í•¨
 
-7. È¸¿ø ÀÌ¹ÌÁö °æ·Î.
+7. íšŒì› ì´ë¯¸ì§€ ê²½ë¡œ.
 
    workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\gaebalin\userImg
 
-   => ÀÌ¹ÌÁö´Â ¼­¹ö¿¡ ¾÷·ÎµåµÇ¾î ÀÖ½À´Ï´Ù.(refresh ¹®Á¦ ÇØ°á)
+   => ì´ë¯¸ì§€ëŠ” ì„œë²„ì— ì—…ë¡œë“œë˜ì–´ ìžˆìŠµë‹ˆë‹¤.(refresh ë¬¸ì œ í•´ê²°)
 
-   => ·ÎÄÃ¿¡¼­´Â È®ÀÎÇÒ ¼ö ¾ø½À´Ï´Ù (±âÁ¸ »ùÇÃµ¥ÀÌÅÍ´Â È®ÀÎ°¡´ÉÇÔ)
+   => ë¡œì»¬ì—ì„œëŠ” í™•ì¸í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤ (ê¸°ì¡´ ìƒ˜í”Œë°ì´í„°ëŠ” í™•ì¸ê°€ëŠ¥í•¨)
 
-8. °øÅë½ºÅ©¸³Æ® ÆÄÀÏ = common.js (index.html ¼öÁ¤ÇØ¼­ ½ÇÇà)
+8. ê³µí†µìŠ¤í¬ë¦½íŠ¸ íŒŒì¼ = common.js (index.html ìˆ˜ì •í•´ì„œ ì‹¤í–‰)
 
 9. Login
 
-   1) °ü¸®ÀÚ(A) Á¢¼Ó = ¾ÆÀÌµð : admin, ºñ¹Ð¹øÈ£ : admin
+   1) ê´€ë¦¬ìž(A) ì ‘ì† = ì•„ì´ë”” : admin, ë¹„ë°€ë²ˆí˜¸ : admin
 
-   2) ÀÏ¹ÝÀ¯Àú Á¢¼Ó = ¾ÆÀÌµð : user, ºñ¹Ð¹øÈ£ : user
+   2) ì¼ë°˜ìœ ì € ì ‘ì† = ì•„ì´ë”” : user, ë¹„ë°€ë²ˆí˜¸ : user
 
-   3) ±×¿Ü TB_COM_USER Å×ÀÌºí¿¡¼­ Á¶È¸ÇÏ¿© Á¢¼ÓÇÏ½Ã¸é µË´Ï´Ù.
+   3) ê·¸ì™¸ TB_COM_USER í…Œì´ë¸”ì—ì„œ ì¡°íšŒí•˜ì—¬ ì ‘ì†í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
 
-   4) »ùÇÃ À¯ÀúÁ¤º¸´Â SQL Äõ¸®ÆÄÀÏ¿¡ ÀÖ½À´Ï´Ù.
+   4) ìƒ˜í”Œ ìœ ì €ì •ë³´ëŠ” SQL ì¿¼ë¦¬íŒŒì¼ì— ìžˆìŠµë‹ˆë‹¤.
 
 
-10. °³¹ßÀÚ Ä¿¹Â´ÏÆ¼ °³¹ßÀÎ WebSite ÁÖ¿ä±â´É ¹× ±â¼ú
+10. ê°œë°œìž ì»¤ë®¤ë‹ˆí‹° ê°œë°œì¸ WebSite ì£¼ìš”ê¸°ëŠ¥ ë° ê¸°ìˆ 
 
-   1) °øÅë
+   1) ê³µí†µ
 
-     ¨ç ·Î±×ÀÎ(IDÃ£±â, ÆÐ½º¿öµåÃ£±â) / ·Î±×¾Æ¿ô
+     â‘  ë¡œê·¸ì¸(IDì°¾ê¸°, íŒ¨ìŠ¤ì›Œë“œì°¾ê¸°) / ë¡œê·¸ì•„ì›ƒ
     
-     ¨è È¸¿ø°¡ÀÔ, È¸¿øÁ¤º¸ ¼öÁ¤
+     â‘¡ íšŒì›ê°€ìž…, íšŒì›ì •ë³´ ìˆ˜ì •
   
-     ¨é µ¥ÀÌÅÍ °Ë»ö ¹× ÆäÀÌÂ¡(BootStrap Å×ÀÌºíÀÌ¿ë)
+     â‘¢ ë°ì´í„° ê²€ìƒ‰ ë° íŽ˜ì´ì§•(BootStrap í…Œì´ë¸”ì´ìš©)
 
-   2) »ç¿ëÀÚ
+   2) ì‚¬ìš©ìž
 
-     ¨ç Á¦Ç°±¸¸Å(¹Ù·Î±¸¸Å, Àå¹Ù±¸´Ï)
+     â‘  ì œí’ˆêµ¬ë§¤(ë°”ë¡œêµ¬ë§¤, ìž¥ë°”êµ¬ë‹ˆ)
 
-     ¨è Á¦Ç°±¸¸Å ÈÄ ÁÖ¹®¼­È®ÀÎ
+     â‘¡ ì œí’ˆêµ¬ë§¤ í›„ ì£¼ë¬¸ì„œí™•ì¸
 
-     ¨é Á¦Ç°±¸¸Å ÈÄ ´ñ±Ûµî·Ï ¹× »èÁ¦(¸ð¹ÙÀÏ Çü½ÄÀÇ ´ñ±Û UI), ÆòÁ¡µî·Ï(º°¸ð¾ç UI »ç¿ë)
+     â‘¢ ì œí’ˆêµ¬ë§¤ í›„ ëŒ“ê¸€ë“±ë¡ ë° ì‚­ì œ(ëª¨ë°”ì¼ í˜•ì‹ì˜ ëŒ“ê¸€ UI), í‰ì ë“±ë¡(ë³„ëª¨ì–‘ UI ì‚¬ìš©)
 
-     ¨ê ±¸¸Å³»¿ª
+     â‘£ êµ¬ë§¤ë‚´ì—­
 
-     ¨ë Àå¹Ù±¸´Ï(Àå¹Ù±¸´Ï¿¡¼­ ¹Ù·Î±¸¸Å ±â´É, ¸®½ºÆ® »èÁ¦±â´É)
+     â‘¤ ìž¥ë°”êµ¬ë‹ˆ(ìž¥ë°”êµ¬ë‹ˆì—ì„œ ë°”ë¡œêµ¬ë§¤ ê¸°ëŠ¥, ë¦¬ìŠ¤íŠ¸ ì‚­ì œê¸°ëŠ¥)
 
-   3) °ü¸®ÀÚ
+   3) ê´€ë¦¬ìž
 
-     ¨ç Àç°í°ü¸®(»õ·Î¿î Á¦Ç° µî·Ï ¹× ¼öÁ¤)
+     â‘  ìž¬ê³ ê´€ë¦¬(ìƒˆë¡œìš´ ì œí’ˆ ë“±ë¡ ë° ìˆ˜ì •)
 
-     ¨è ¸ÅÃâÅë°è(Á¦Ç° Ä«Å×°í¸®º°, Ç×¸ñº° ¸ÅÃâ Åë°è)
+     â‘¡ ë§¤ì¶œí†µê³„(ì œí’ˆ ì¹´í…Œê³ ë¦¬ë³„, í•­ëª©ë³„ ë§¤ì¶œ í†µê³„)
 
-     ¨é Àç°íÇöÈ²(Ä«Å×°í¸®º° Àç°íÇöÈ², Á¦Ç° ÆÇ¸ÅÇöÈ² Åë°è)
+     â‘¢ ìž¬ê³ í˜„í™©(ì¹´í…Œê³ ë¦¬ë³„ ìž¬ê³ í˜„í™©, ì œí’ˆ íŒë§¤í˜„í™© í†µê³„)
 
-11. °³¹ßÀÎ ÇÁ·Î±×·¥ ±¸Á¶ Description
+11. ê°œë°œì¸ í”„ë¡œê·¸ëž¨ êµ¬ì¡° Description
 
-  1) ±âº» ÇÁ·¹ÀÓ¿öÅ©´Â SpringÀÌ¸ç, Tomcat, OracleDB µîÀ» »ç¿ëÇÕ´Ï´Ù.
+  1) ê¸°ë³¸ í”„ë ˆìž„ì›Œí¬ëŠ” Springì´ë©°, Tomcat, OracleDB ë“±ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.
 
-  2) JAVA (Controller, Service, ServiceImpl, Bean) + xml(mybatis)·Î Set ±¸¼º
+  2) JAVA (Controller, Service, ServiceImpl, Bean) + xml(mybatis)ë¡œ Set êµ¬ì„±
  
-  3) È­¸é´ÜÀº JSP(BootStrap ÀÌ¿ë)
+  3) í™”ë©´ë‹¨ì€ JSP(BootStrap ì´ìš©)
 
-  4) Sciprt´Â jQuery ´Ù¼ö Àû¿ë
+  4) SciprtëŠ” jQuery ë‹¤ìˆ˜ ì ìš©
 
-  5) ÀÔ·Â´Ü validation Ã¼Å© : °øÅë(common.js), ¼Ò½ººÐ¼®Âü°í
+  5) ìž…ë ¥ë‹¨ validation ì²´í¬ : ê³µí†µ(common.js), ì†ŒìŠ¤ë¶„ì„ì°¸ê³ 
 
-    [ÀÔ·Â´Ü validationÀº È­¸é¸¶´Ù ÇÑÁÙÃ³¸®·Î °¡´ÉÇÏ°Ô ¸¸µé¾úÀ½]
+    [ìž…ë ¥ë‹¨ validationì€ í™”ë©´ë§ˆë‹¤ í•œì¤„ì²˜ë¦¬ë¡œ ê°€ëŠ¥í•˜ê²Œ ë§Œë“¤ì—ˆìŒ]
 
-12. common.js(jquery±¸Çö) ÁÖ¿ä±â´É
+12. common.js(jqueryêµ¬í˜„) ì£¼ìš”ê¸°ëŠ¥
 
-  1) ÀÔ·Â´Ü µÚ·Î°¡±â ¹öÆ° ¹æÁö
+  1) ìž…ë ¥ë‹¨ ë’¤ë¡œê°€ê¸° ë²„íŠ¼ ë°©ì§€
 
-  2) ·Î±×ÀÎÃ¼Å©
+  2) ë¡œê·¸ì¸ì²´í¬
 
-  3) validationÀÚµ¿Ã¼Å©(¹é±×¶ó¿îµå¿¡ ¾Ö´Ï¸ÞÀÌ¼Ç È¿°ú(red))
+  3) validationìžë™ì²´í¬(ë°±ê·¸ë¼ìš´ë“œì— ì• ë‹ˆë©”ì´ì…˜ íš¨ê³¼(red))
 
-  4) ÀÔ·Â´Ü ÇÊ¼ö°ªÇ¥½Ã(required¼Ó¼ºÀÌ¿ë(HTML5)) ¾Õ´Ü¿¡ »¡°£*Ç¥½Ã
+  4) ìž…ë ¥ë‹¨ í•„ìˆ˜ê°’í‘œì‹œ(requiredì†ì„±ì´ìš©(HTML5)) ì•žë‹¨ì— ë¹¨ê°„*í‘œì‹œ
 
-  5) ¼ýÀÚ ÀÔ·Â´Ü¿¡ ¼ýÀÚÀÌ¿Ü Å¸ÀÌÇÎ ±ÝÁö
+  5) ìˆ«ìž ìž…ë ¥ë‹¨ì— ìˆ«ìžì´ì™¸ íƒ€ì´í•‘ ê¸ˆì§€
 
-13. ÁÖ¿ä±â¼ú 
+13. ì£¼ìš”ê¸°ìˆ  
 
-  1) ºñµ¿±â »çÁø ¾÷·Îµå
+  1) ë¹„ë™ê¸° ì‚¬ì§„ ì—…ë¡œë“œ
 
-  2) ºñµ¿±â JSON  Ã³¸®
+  2) ë¹„ë™ê¸° JSON  ì²˜ë¦¬
 
-  3) Å©·Ñ¸µ ÆäÀÌÁö : Àå°í ¼­¹ö¸¦ ÀÌ¿ë
+  3) í¬ë¡¤ë§ íŽ˜ì´ì§€ : ìž¥ê³  ì„œë²„ë¥¼ ì´ìš©
 
-  4) µö·¯´× ÀÌ¹ÌÁö ºÐ·ù ÆäÀÌÁö : ÇÃ¶ó½ºÅ© ¼­¹ö¸¦ ÀÌ¿ë
+  4) ë”¥ëŸ¬ë‹ ì´ë¯¸ì§€ ë¶„ë¥˜ íŽ˜ì´ì§€ : í”Œë¼ìŠ¤í¬ ì„œë²„ë¥¼ ì´ìš©

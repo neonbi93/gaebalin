@@ -95,6 +95,10 @@ INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, POST_NUM, PHONE_NU
           '010-1434-8011', '서울시 송파구 방이동 현대아파트', 'M', '2015-12-15 01:01', '관리자1');
 
 INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, POST_NUM, PHONE_NUM, ADDRESS, CONNECT_DATE, NICK_NAME) VALUES (
+          'USER' || LPAD(USER_SEQ.NEXTVAL, 6, 0), 'user', 'user', 'user@naver.com', 'user.jpg', '250-110',
+          '010-7765-4321', '서울시 구로구 구로동 12-250', '2020-03-15 19:01', '시바');
+
+INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, POST_NUM, PHONE_NUM, ADDRESS, CONNECT_DATE, NICK_NAME) VALUES (
           'USER' || LPAD(USER_SEQ.NEXTVAL, 6, 0), 'ranone', 'ranone', 'ranone@naver.com', 'ranone.png', '151-241',
           '010-8822-5318', '서울시 성동구 성수2동 롯데캐슬', '2015-12-16 13:01', '존');
 
