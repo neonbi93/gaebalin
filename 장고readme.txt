@@ -31,7 +31,7 @@ file -> settings -> project interfreter
 project structure에서 execluded 돼 있는거 없애줘야함
 
 ============================================================
-gaebalin   sql 새로 생성할때 마다 해줘야함
+gaebalin sql 새로 생성할때 마다 해줘야함
 
 1. 가상 환경 
 	cd 커맨드로 scripts 폴더로 이동 activate 활성화
