@@ -197,6 +197,7 @@ public class EventController {
 		return mv;
 	}
 	
+	// 행사 승인 여부
 	@RequestMapping(value="/work/event/updateEventYn.do", method=RequestMethod.GET)
 	public ModelAndView updateEventYn(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();

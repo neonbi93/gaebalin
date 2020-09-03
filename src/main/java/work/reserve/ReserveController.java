@@ -77,7 +77,8 @@ public class ReserveController {
 		eventParam.put("eventCurPop", reservePop);
 
 		eventService.updateEventPopPlus(eventParam);
-
+		
+		// 예약 결제 여부
 		reserveService.updateReserveSellYn(reserveParam);
 
 		mv.setViewName("redirect:/work/reserve/retrieveReserveConfirm.do?eventNo=" + eventNo);
@@ -178,7 +179,8 @@ public class ReserveController {
 		String reserveNo = request.getParameter("reserveNo");
 
 		reserveParam.put("reserveNo", reserveNo);
-
+		
+		// 예약 승인 여부
 		reserveService.updateReserveYn(reserveParam);
 
 		mv.setViewName("redirect:/work/reserve/retrieveReserveListForManage.do");

@@ -109,6 +109,7 @@ public class UserController implements HttpSessionListener{
 
 		session.setMaxInactiveInterval(-1); //세션 무한대
 		
+		// 이전 페이지 정보를 저장했다가 다시 로그인 완료 후 이전 페이지로 이동
 		String referer = (String) session.getAttribute("referUrl");
 		System.out.println(referer);
 		return "redirect:" + referer;
@@ -233,15 +234,14 @@ public class UserController implements HttpSessionListener{
 	    	ModelAndView mv = new ModelAndView();
 	        /* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
 	        String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-	        
-	        //https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
-	        //redirect_uri=http%3A%2F%2F211.63.89.90%3A8090%2Flogin_project%2Fcallback&state=e68c269c-5ba9-4c31-85da-54c16c658125
+	        // 네이버 인증 URL
+
 	        System.out.println("네이버:" + naverAuthUrl);
 	        
 	        String kakaoUrl = KakaoLoginBO.getAuthorizationUrl(session);
+	        //카카오 인증 URL 
 
 	        System.out.println("카카오:" + kakaoUrl);
-	        //네이버 
 	        
 			String referer = request.getHeader("Referer");
 			System.out.println(referer);
