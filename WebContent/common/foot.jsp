@@ -12,6 +12,7 @@
 	content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes, width=device-width, height=device-height" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<link href="${context}/css/bootstrap.min.css" rel="stylesheet" />
 <link href="${context}/css/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="${context}/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
@@ -77,7 +78,6 @@
 			<span class="icon icon-envelope"></span>
 			<span>businessname@business.com</span>
         </div>
-       
     </div>
 </div>
 <div id="copyright">

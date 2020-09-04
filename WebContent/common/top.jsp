@@ -73,6 +73,7 @@ a {
 <title>개발인</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<link href="${context}/css/bootstrap.min.css" rel="stylesheet" />
 <link
 	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
 	rel="stylesheet" />
@@ -96,7 +97,6 @@ a {
 		<div id="header" class="container">
 			<div id="logo">
 				<span class="icon icon-cog"></span>
-	
 				<h1>
 					<a href="${context}/work/product/goMain.do">개발인</a>
 				</h1>

@@ -255,8 +255,8 @@
 						<td>
 		                     <button id ="reserveBtn" type="button" class="btn btn-warning btn-sm" onclick="fn_reserve('${sessionScope.userCode}', '${loginUrl}')">
 		                     <i class="fa fa-shopping-cart fa-2x">&nbsp;예약하기</i></button>
-		                     <button type="button" class="btn btn-warning btn-sm" onclick="fn_reserveConfirm('${sessionScope.userCode}', '${loginUrl}')">
-		                     <i class="fa fa-shopping-cart fa-2x">&nbsp;예약확인</i></button>
+		                     <button type="button" class="btn btn-info btn-sm" onclick="fn_reserveConfirm('${sessionScope.userCode}', '${loginUrl}')">
+		                     <i class="fa fa-receipt fa-2x">&nbsp;예약확인</i></button>
 						</td>
                       </tr>
                     </tbody>
