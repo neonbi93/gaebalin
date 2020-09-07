@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta name="viewport"
-	content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=yes; width=device-width;height=device-height" />
+	content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes, width=device-width, height=device-height" />
 <meta charset="UTF-8">
 <meta name="description" content="scheListR.jsp">
 <title>공지사항</title>

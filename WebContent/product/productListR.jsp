@@ -22,7 +22,6 @@
     <!-- Custom Fonts -->
     <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/common.js"></script>
 	<script src="${context}/js/bootstrap.min.js"></script>
 
     <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
@@ -75,7 +74,6 @@
 			                            <td style="text-align: center; vertical-align: middle;">
 			                            <a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
 			                            <!-- 이미지 사이즈 width만 되고 heigt은 안먹음 --><img name="image" width="80px" height="140px" src="${context}/javaImg/${dsProductList.PRODUCT_IMAGE}" class="img-thumbnail"></a>
-										
 											<script type="text/javascript">
 											 	var productCategoryCd = '${dsProductList.PRODUCT_CATEGORY_CD}';
 
@@ -121,9 +119,7 @@
 			    </div>
 			    <!-- /.panel -->
 			</div>
-	
 	</div>
-	
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 </body>
 </html>

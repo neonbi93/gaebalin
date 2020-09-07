@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="context"><%=request.getContextPath()%></c:set>
+<c:set var="uri"><%=request.getRequestURI()%></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by TEMPLATED
@@ -61,14 +62,9 @@ a {
 }
 </style>
 <script>
-	
+	var URI = "${uri}";
+	console.log(URI);
 </script>
-<!--   <script>
- $(document).ready(function() {
-    $("div#menu").onclick(function(){
-    	$(this).find('ul>li').css(' background','white');
-    })
-</script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>개발인</title>
 <meta name="keywords" content="" />
@@ -81,16 +77,25 @@ a {
 <script src="${context}/js/bootstrap.min.js"></script>
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
-<c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
-<c:set var="loginUrl">${context}/work/user/goLogin.do</c:set>
+<c:set var="homeUrl">/product/main.jsp</c:set>
+<c:set var="loginUrl">/user/login.jsp</c:set>
 
-<c:set var="javaUrl">${context}/work/product/retrieveProductList.do?category=JA</c:set>
-<c:set var="pythonUrl">${context}/work/product/retrieveProductList.do?category=PY</c:set>
-<c:set var="educationUrl">${context}/work/product/retrieveProductList.do?category=ED</c:set>
-<c:set var="clanguageUrl">${context}/work/product/retrieveProductList.do?category=CC</c:set>
+<c:set var="signUrl">/user/userC.jsp</c:set>
+<c:set var="intoduceUrl">/introduce/main.jsp</c:set>
 
-<c:set var="conUrl">${context}/work/event/retrieveEventList.do?category=CON</c:set>
-<c:set var="metUrl">${context}/work/event/retrieveEventList.do?category=MET</c:set>
+<c:set var="scheListUrl">/sche/scheListR.jsp</c:set>
+<c:set var="scheUrl">/sche/scheR.jsp</c:set>
+
+<c:set var="boardListUrl">/board/boardListR.jsp</c:set>
+<c:set var="boardUrl">/board/boardR.jsp</c:set>
+
+<c:set var="bookListUrl">/product/productListR.jsp</c:set>
+<c:set var="bookPopUrl">/product/productListPop.jsp</c:set>
+<c:set var="bookUrl">/product/productR.jsp</c:set>
+
+<c:set var="eventListUrl">/event/eventListR.jsp</c:set>
+<c:set var="eventUrl">/event/eventR.jsp</c:set>
+
 </head>
 <body>
 	<div id="header-wrapper">
@@ -103,11 +108,24 @@ a {
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="active"><a href="${context}/work/product/goMain.do" title="">Home</a></li>
+					<c:choose>
+						<c:when test="${uri == homeUrl}"><li class="active"><a href="${context}/work/product/goMain.do">Home</a></li></c:when>
+						<c:otherwise><li><a href="${context}/work/product/goMain.do">Home</a></li></c:otherwise>
+					</c:choose>
 					<c:if test="${sessionScope.grade != 'M'}">
-						<li class=""><a href="${context}/work/introduce/main.do"
-							accesskey="2" title="">용어 소개</a></li>
-						<li><a href="${context}/work/product/retrieveProductList.do">도서구매</a>
+						<c:choose>
+							<c:when test="${uri == intoduceUrl}">
+								<li class="active"><a href="${context}/work/introduce/main.do">용어 소개</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${context}/work/introduce/main.do">용어 소개</a></li>
+							</c:otherwise>
+						</c:choose>
+						<c:choose>
+							<c:when test="${uri == bookListUrl || uri == bookPopUrl || uri == bookUrl}"><li class="active"></c:when>
+							<c:otherwise><li></c:otherwise>
+						</c:choose>
+						<a href="${context}/work/product/retrieveProductList.do">도서구매</a>
 							<ul class="submenu">
 								<li><a href="${context}/work/product/retrieveProductListPop.do"
 									style="color: black; font-size: 10px;">인기 도서&nbsp;</a></li>
@@ -121,7 +139,11 @@ a {
 									style="color: black; font-size: 10px;">C언어&nbsp;</a></li>
 							</ul>
 						</li>
-						<li><a href="${context}/work/event/retrieveEventList.do">강연과 모임</a>
+						<c:choose>
+							<c:when test="${uri == eventListUrl || uri == eventUrl}"><li class="active"></c:when>
+							<c:otherwise><li></c:otherwise>
+						</c:choose>
+						<a href="${context}/work/event/retrieveEventList.do">강연과 모임</a>
 							<ul class="submenu">
 								<li><a href="${context}/work/event/retrieveEventList.do?eventCategoryCd=CON"
 									style="color: black; font-size: 10px;">강연&nbsp;</a></li>
@@ -130,53 +152,75 @@ a {
 							</ul>
 						</li>
 					</c:if>
-					<li><a href="${context}/work/board/retrieveBoardList.do"
-						title="">게시판</a>
-					</li>
-					<li><a href="${context}/work/sche/retrieveScheList.do"
-						title="">공지사항</a>
-					</li>
-					<li>
-						<c:if test="${sessionScope.id == null}">
-							<a href="${context}/work/user/createUser.do" title="">회원가입</a>
-						</c:if>
-					<c:if test="${sessionScope.id != null && sessionScope.grade != 'M'}">
-						<li><a href="#">마이페이지</a>
-							<ul class="submenu">
-								<li><a href="${context}/work/user/updateUser.do" style="color: black; font-size: 10px;">정보수정&nbsp;</a></li>
-								<li><a href="${context}/work/cart/retrieveCartList.do" style="color: black; font-size: 10px;">장바구니&nbsp;</a></li>
-								<li><a href="${context}/work/sell/retrieveBuyList.do" style="color: black; font-size: 10px;">구매내역&nbsp;</a></li>
-								<li><a href="${context}/work/qna/retrieveQnaList.do" style="color: black; font-size: 10px;">문의내역&nbsp;</a></li>
-								<li><a href="${context}/work/reserve/retrieveReserveList.do" style="color: black; font-size: 10px;">예약내역&nbsp;</a></li>
-								<li><a href="${context}/work/event/createEvent.do" style="color: black; font-size: 10px;">행사신청&nbsp;</a></li>
-							</ul>
-						</li>
+					<c:choose>
+						<c:when test="${uri == boardUrl || uri == boardListUrl}">
+							<li class="active"><a href="${context}/work/board/retrieveBoardList.do">게시판</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${context}/work/board/retrieveBoardList.do">게시판</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${uri == scheUrl || uri == scheListUrl}">
+							<li class="active"><a href="${context}/work/sche/retrieveScheList.do">공지사항</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${context}/work/sche/retrieveScheList.do">공지사항</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:if test="${sessionScope.id == null}">
+						<c:choose>
+							<c:when test="${uri == signUrl}">
+								<li class="active"><a href="${context}/work/user/createUser.do" title="">회원가입</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${context}/work/user/createUser.do" title="">회원가입</a></li>
+							</c:otherwise>
+						</c:choose>
 					</c:if>
-					<c:if test="${sessionScope.id != null && sessionScope.grade == 'M'}">
-						<li><a href="#">관리페이지</a>
-							<ul class="submenu">
-								<li><a href="http://192.168.0.59:8000/gaebalin" style="color: black; font-size: 10px;">크롤링 페이지&nbsp;</a></li>
-								<li><a href="javascript:void(window.open('http://192.168.0.59:5050', '_blank','width=480, height=600'))"
-								 style="color: black; font-size: 10px;">딥러닝&nbsp;</a></li>
-								<li><a href="javascript:void(window.open('http://192.168.0.59:6060', '_blank','width=480, height=600'))"
-								 style="color: black; font-size: 10px;">캣독&nbsp;</a></li>
-								<li><a href="${context}/work/user/retrieveUserListForM.do" style="color: black; font-size: 10px;">유저관리&nbsp;</a></li>
-								<li><a href="${context}/work/product/retrieveProductListForManage.do" style="color: black; font-size: 10px;">재고관리&nbsp;</a></li>
-								<li><a href="${context}/work/qna/retrieveQnaListForManage.do" style="color: black; font-size: 10px;">문의관리&nbsp;</a></li>
-								<li><a href="${context}/work/reserve/retrieveReserveListForManage.do" style="color: black; font-size: 10px;">예약관리&nbsp;</a></li>
-								<li><a href="/chart/chartdata.jsp" style="color: black; font-size: 10px;">월간판매량&nbsp;</a></li>
-							</ul>
-						</li>
-					</c:if>
-					</li>
 					<li>
-						<c:if test="${sessionScope.id == null}">
-							<a href="${context}/work/user/goLogin.do"><strong>LOGIN</strong></a>
+						<c:if test="${sessionScope.id != null && sessionScope.grade != 'M'}">
+							<li><a href="#">마이페이지</a>
+								<ul class="submenu">
+									<li><a href="${context}/work/user/updateUser.do" style="color: black; font-size: 10px;">정보수정&nbsp;</a></li>
+									<li><a href="${context}/work/cart/retrieveCartList.do" style="color: black; font-size: 10px;">장바구니&nbsp;</a></li>
+									<li><a href="${context}/work/sell/retrieveBuyList.do" style="color: black; font-size: 10px;">구매내역&nbsp;</a></li>
+									<li><a href="${context}/work/qna/retrieveQnaList.do" style="color: black; font-size: 10px;">문의내역&nbsp;</a></li>
+									<li><a href="${context}/work/reserve/retrieveReserveList.do" style="color: black; font-size: 10px;">예약내역&nbsp;</a></li>
+									<li><a href="${context}/work/event/createEvent.do" style="color: black; font-size: 10px;">행사신청&nbsp;</a></li>
+								</ul>
+							</li>
 						</c:if>
-						<c:if test="${sessionScope.id != null}">
-							<a href="${context}/work/user/logout.do"><strong>LOGOUT</strong></a>
+						<c:if test="${sessionScope.id != null && sessionScope.grade == 'M'}">
+							<li><a href="#">관리페이지</a>
+								<ul class="submenu">
+									<li><a href="http://192.168.0.59:8000/gaebalin" style="color: black; font-size: 10px;">크롤링 페이지&nbsp;</a></li>
+									<li><a href="javascript:void(window.open('http://192.168.0.59:5050', '_blank','width=480, height=600'))"
+									 style="color: black; font-size: 10px;">딥러닝&nbsp;</a></li>
+									<li><a href="javascript:void(window.open('http://192.168.0.59:6060', '_blank','width=480, height=600'))"
+									 style="color: black; font-size: 10px;">캣독&nbsp;</a></li>
+									<li><a href="${context}/work/user/retrieveUserListForM.do" style="color: black; font-size: 10px;">유저관리&nbsp;</a></li>
+									<li><a href="${context}/work/product/retrieveProductListForManage.do" style="color: black; font-size: 10px;">재고관리&nbsp;</a></li>
+									<li><a href="${context}/work/qna/retrieveQnaListForManage.do" style="color: black; font-size: 10px;">문의관리&nbsp;</a></li>
+									<li><a href="${context}/work/reserve/retrieveReserveListForManage.do" style="color: black; font-size: 10px;">예약관리&nbsp;</a></li>
+									<li><a href="/chart/chartdata.jsp" style="color: black; font-size: 10px;">월간판매량&nbsp;</a></li>
+								</ul>
+							</li>
 						</c:if>
 					</li>
+					<c:if test="${sessionScope.id == null}">
+						<c:choose>
+							<c:when test="${uri == loginUrl}">
+								<li class="active"><a href="${context}/work/user/goLogin.do"><strong>LOGIN</strong></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${context}/work/user/goLogin.do"><strong>LOGIN</strong></a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
+					<c:if test="${sessionScope.id != null}">
+						<li><a href="${context}/work/user/logout.do"><strong>LOGOUT</strong></a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
