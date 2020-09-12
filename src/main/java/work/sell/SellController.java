@@ -50,6 +50,11 @@ public class SellController {
 
 		String userCode = (String)session.getAttribute("userCode");
 
+		Map<String, String> deleteSellParam = new HashMap<String, String>();
+		
+		deleteSellParam.put("userCode", userCode);
+		sellService.deleteSellForRecord(deleteSellParam);
+		
 		Map<String, String> sellParam = new HashMap<String, String>();
 
 		sellParam.put("productCode", productCode);

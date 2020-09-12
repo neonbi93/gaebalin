@@ -20,4 +20,5 @@ public interface SellService {
 	public List<Map<String, String>> retrieveStatisticsForCategory();
 
 	public void deleteSell(Map<String, String> sellParam);
+	public void deleteSellForRecord(Map<String, String> sellParam);
 }

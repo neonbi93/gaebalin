@@ -53,4 +53,8 @@ public class SellServiceImpl implements SellService{
 		sellDAO.deleteSell(sellParam);
 	}
 
+	public void deleteSellForRecord(Map<String, String> sellParam){
+		sellDAO.deleteSellForRecord(sellParam);
+	}
+
 }

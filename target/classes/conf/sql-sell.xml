@@ -185,4 +185,13 @@
 		]]>
 	</delete>
 
+	<delete id="deleteSellForRecord" parameterType="map">
+		<![CDATA[
+			DELETE
+			FROM  TB_SELL
+			WHERE USER_CODE = #{userCode}
+			AND SELL_YN = 'N'
+		]]>
+	</delete>
+
 </mapper>

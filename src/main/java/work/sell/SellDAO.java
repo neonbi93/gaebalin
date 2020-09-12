@@ -52,4 +52,8 @@ public class SellDAO {
 	public void deleteSell(Map<String, String> sellParam){
 		sqlSession.delete("sell.deleteSell", sellParam);
 	}
+
+	public void deleteSellForRecord(Map<String, String> sellParam){
+		sqlSession.delete("sell.deleteSellForRecord", sellParam);
+	}
 }

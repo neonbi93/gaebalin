@@ -9,13 +9,14 @@ public class CartBean implements Serializable{
 	private int cartPrice;      //판매단가
 	private int cartCount;      //판매수량
 	private String cartDate;    //장바구니에 담은날짜
+	private String checkYn;    //상품선택 여부
 
 	public CartBean() {
 		super();
 	}
 
 	public CartBean(String cartCode, String productCode, String userCode,
-			int cartPrice, int cartCount, String cartDate) {
+			int cartPrice, int cartCount, String cartDate, String checkYn) {
 		super();
 		this.cartCode = cartCode;
 		this.productCode = productCode;
@@ -23,6 +24,7 @@ public class CartBean implements Serializable{
 		this.cartPrice = cartPrice;
 		this.cartCount = cartCount;
 		this.cartDate = cartDate;
+		this.checkYn = checkYn;
 	}
 
 	public String getCartCode() {
@@ -72,4 +74,13 @@ public class CartBean implements Serializable{
 	public void setCartDate(String cartDate) {
 		this.cartDate = cartDate;
 	}
+
+	public String getCheckYn() {
+		return checkYn;
+	}
+
+	public void setCheckYn(String checkYn) {
+		this.checkYn = checkYn;
+	}
+	
 }

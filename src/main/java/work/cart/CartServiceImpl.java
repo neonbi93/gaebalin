@@ -20,11 +20,27 @@ public class CartServiceImpl implements CartService{
 		return cartDAO.retrieveCartList(cartParam);
 	}
 
+	public List<Map<String, String>> retrieveCartListForBuy(Map<String, String> cartParam){
+		return cartDAO.retrieveCartListForBuy(cartParam);
+	}
+
+	public Map<String, String> retrieveCart(Map<String, String> cartParam){
+		return cartDAO.retrieveCart(cartParam);
+	}
+
+	public CartBean cartInfo(String cartCode)  {
+		return cartDAO.cartInfo(cartCode);
+	}
+	
 	public void deleteCart(Map<String, String> cartParam){
 		cartDAO.deleteCart(cartParam);
 	}
 	
-	public Map<String, String> retrieveCart(Map<String, String> cartParam){
-		return cartDAO.retrieveCart(cartParam);
+	public void updateCheckYn(Map<String, String> cartParam){
+		cartDAO.updateCheckYn(cartParam);
+	}
+	
+	public void resetCheckYn(Map<String, String> cartParam){
+		cartDAO.resetCheckYn(cartParam);
 	}
 }

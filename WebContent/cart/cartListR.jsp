@@ -44,13 +44,21 @@
 
     $(document).ready(function() {
         $('#dataTables-example').dataTable();
+        
+        $('.check-all').click(function() {
+            $('input[name=buyList]').prop( 'checked', this.checked );
+          });
 
     });
 
+    function check_all(){
+    	$('.check-all').click();
+    };
+    
     function fn_buy(paramCartCode, paramProductCode, paramSellPrice, paramSellCount, paramProductName,
     		paramEmail, paramName, paramTel, paramAddr, paramPost){
     	location.href = "${context}/work/sell/createSell.do?productCode=" + paramProductCode + "&sellPrice=" + paramSellPrice + "&sellCount=" + paramSellCount + "&cartCode=" + paramCartCode + "&fromCart=true";
-    }
+    };
     
     /*
     function fn_buy(paramCartCode, paramProductCode, paramSellPrice, paramSellCount, paramProductName,
@@ -86,20 +94,70 @@
 		        }
 		    });	
     	}
-    }
+    };
     */
 
     function fn_delete(paramCartCode, paramProductCode, paramSellCount){
     	if(confirm("정말로 삭제하시겠습니까?")){
 	    	location.href = "${context}/work/cart/deleteCart.do?cartCode=" + paramCartCode + "&productCode=" + paramProductCode + "&productCount=" + paramSellCount;
     	}
-    }
+    };
     
-    function fn_buyall(){
-    	if(confirm("모두 구매하시겠습니까?")){
-	    	location.href = "${context}/work/cart/cartBuyAll.do";
+    function fn_buyCheck(){
+    	var param = {};
+    	var buyArray = new Array();
+    	
+    	$("input[name=buyList]:checked").each(function(i){
+    		buyArray.push($(this).val());
+    	});
+    	
+    	param["buyList"] = buyArray;
+    	if(confirm("선택한 상품을 구매하시겠습니까?")){
+	    	$.ajax({
+				url:"${context}/work/cart/ajaxBuyList.do",
+				contentType:"application/json",
+				dataType:"json",
+				data:param,
+				traditional:true,
+				success:function(result){
+					if(result['cartYn'] == 'success'){
+						console.log("no error");
+						location.href = "${context}/work/cart/cartBuyList.do";
+					}else{
+						console.log("error!");
+					}
+				}
+			});
     	}
-    }
+    };
+    
+    function ajaxCartDelete(){
+    	var param = {};
+    	var deleteArray = new Array();
+    	
+    	$("input[name=buyList]:checked").each(function(i){
+    		deleteArray.push($(this).val());
+    	});
+    	
+    	param["deleteList"] = deleteArray;
+    	if(confirm("선택한 상품을 삭제하시겠습니까?")){
+	    	$.ajax({
+				url:"${context}/work/cart/ajaxDeleteCart.do",
+				contentType:"application/json",
+				dataType:"json",
+				data:param,
+				traditional:true,
+				success:function(result){
+					if(result['deleteYn'] == 'success'){
+						console.log("no error");
+						location.reload(true);
+					}else{
+						console.log("error!");
+					}
+				}
+			});
+    	}
+    };
 
     </script>
 </head>
@@ -111,28 +169,30 @@
 			<p>${sessionScope.id}님의 장바구니입니다.</p>
 		</div>
 		<div class="row">
-			<button class="btn btn-success btn-lg" style="float: right; margin-right: 3%; margin-bottom : 3%;" onclick="fn_buyall()">모두 구매</button>
+			<button class="btn btn-success btn-sm" style="float: right; margin-right: 3%; margin-bottom : 3%;" onclick="fn_buyCheck()">구매</button>
+			<button class="btn btn-success btn-sm" style="float: right; margin-right: 1%;" onclick="ajaxCartDelete()">삭제</button>
+			<button class="btn btn-success btn-sm" style="float: right; margin-right: 1%;" onclick="check_all()">모두 선택</button>
 			<div class="col-md-12">
 			    <div class="panel panel-default">
 			        <!-- /.panel-heading -->
 			        <div class="panel-body">
 			            <div class="table-responsive">
-			                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+			                <table class="table table-striped table-bordered table-hover" id="">
 			                    <thead>
 			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; width: 10px;">No</th>
+			                        	<th style="text-align: center; vertical-align: middle; width: 10px;">No
+			                        	<input type="checkbox" name="all" class="check-all"></th>
 			                            <th style="text-align: center; vertical-align: middle; width: 20px;">상품이미지</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 50px;">상품이름</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 20px;">상품단가</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 40px;">상품수량</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 30px;">결제금액</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">구매 / 삭제</th>
 			                        </tr>
 			                    </thead>
 			                    <tbody>
 			                    	<c:forEach items="${dsCartList}" var="dsCartList" varStatus="cartIdx">
 			                         <tr>
-			                         	<td style="text-align: center; vertical-align: middle;">${cartIdx.count}</td>
+			                         	<td style="text-align: center; vertical-align: middle;">${cartIdx.count}<input type="checkbox" name="buyList" value="${dsCartList.CART_CODE}"></td>
 			                            <td style="text-align: center; vertical-align: middle;">
 										<a href="${context}/work/product/retrieveProduct.do?productCode=${dsCartList.PRODUCT_CODE}">
 											<img name="image" width="110px" height="110px" src="${context}/binderImg/${dsCartList.PRODUCT_IMAGE}" class="img-thumbnail">
@@ -159,11 +219,6 @@
 			                            <td style="text-align: center; vertical-align: middle;">${dsCartList.PRODUCT_UNIT_PRICE}원</td>
 			                            <td style="text-align: center; vertical-align: middle;">${dsCartList.CART_COUNT}</td>
 			                            <td style="text-align: center; vertical-align: middle;">${dsCartList.CART_PRICE}원</td>
-			                            <td style="text-align: center; vertical-align: middle;">
-			                            	<button type="button" class="btn btn-primary" onclick="fn_buy('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_PRICE}', '${dsCartList.CART_COUNT}', '${dsCartList.PRODUCT_NAME}', 
-			                            	'${dsCartList.EMAIL}', '${dsCartList.NICK_NAME}', '${dsCartList.PHONE_NUM}', '${dsCartList.ADDRESS}', '${dsCartList.POST_NUM}')">구매</button>
-			                            	<button type="button" class="btn btn-danger" onclick="fn_delete('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_COUNT}')">삭제</button>
-			                            </td>
 			                         </tr>
 			                        </c:forEach>
 			                    </tbody>
