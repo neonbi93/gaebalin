@@ -197,8 +197,6 @@ a {
 									<li><a href="http://192.168.0.59:8000/gaebalin" style="color: black; font-size: 10px;">크롤링 페이지&nbsp;</a></li>
 									<li><a href="javascript:void(window.open('http://192.168.0.59:5050', '_blank','width=480, height=600'))"
 									 style="color: black; font-size: 10px;">딥러닝&nbsp;</a></li>
-									<li><a href="javascript:void(window.open('http://192.168.0.59:6060', '_blank','width=480, height=600'))"
-									 style="color: black; font-size: 10px;">캣독&nbsp;</a></li>
 									<li><a href="${context}/work/user/retrieveUserListForM.do" style="color: black; font-size: 10px;">유저관리&nbsp;</a></li>
 									<li><a href="${context}/work/product/retrieveProductListForManage.do" style="color: black; font-size: 10px;">재고관리&nbsp;</a></li>
 									<li><a href="${context}/work/qna/retrieveQnaListForManage.do" style="color: black; font-size: 10px;">문의관리&nbsp;</a></li>

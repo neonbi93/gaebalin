@@ -99,21 +99,28 @@ a {
 					<h2>추천 도서</h2>
 					<div class="card" style="width: 28rem;">
 						<a href="${context}/work/product/retrieveProduct.do?productCode=P000026">
-						<img id="image" class="card-img-top" src="${context}/educationImg/MS 팀즈 수업 디자인.jpg" width="240px;" height="270px;" /></a>
+						<img class="card-img-top" src="${context}/educationImg/양자 컴퓨터 원리와 수학적 기초.jpg" width="240px;" height="270px;" /></a>
 						<div class="card-body">
 							<h5 class="card-title">
-								<b>MS 팀즈 수업 디자인 | 20000원</b>
+								<b>양자 컴퓨터 원리와 수학적 기초 | 25000원</b>
 							</h5>
 						</div>
-						<a href="#" class="button">Learn More</a>
+						<a href="${context}/work/product/retrieveProduct.do?productCode=P000026" class="button">Learn More</a>
 					</div>
 				</div>
 			</div>
 			<div id="tbox3">
 				<div class="title">
 					<h2>추천 강의</h2>
+					<div class="card" style="width: 28rem;">
+						<div class="card-body">
+							<br/><h4><a href="javascript:void(window.open('https://youtu.be/ORI4-EXhgC4', '_sub'))"><b>1. HTML의 기초(출처 : 테크보이)</b></a></h4>
+							<br/><h4><a href="javascript:void(window.open('https://youtu.be/wpUiN5hBnyc', '_sub'))"><b>2. 코딩의 기초(출처 : 조코딩)</b></a></h4>
+							<br/><h4><a href="javascript:void(window.open('https://youtu.be/wjLwmWyItWI', '_sub'))"><b>3. 자바의 기초(출처 : 동빈나)</b></a></h4>
+							<br/><h4><a href="javascript:void(window.open('https://youtu.be/kWiCuklohdY', '_sub'))"><b>4. 파이썬의 기초(출처 : 나노코딩)</b></a></h4>							
+						</div>
+					</div>
 				</div>
-				<a href="#" class="button">Learn More</a>
 			</div>
 		</div>
 		<div id="portfolio" class="container">
@@ -144,7 +151,7 @@ a {
 			</div>
 			<div class="column3">
 				<div class="box">
-					<h3>모임,행사</h3>
+					<h3>이벤트</h3>
 					<c:forEach items="${dsEventList}" var="dsEventList">
 						<ul>
 							<li><a href="${context}/work/event/retrieveEvent.do?eventNo=${dsEventList.EVENT_NO}">
@@ -156,15 +163,6 @@ a {
 					 class="button button-small">행사 신청</a>
 				</div>
 			</div>
-			<!-- 
-			<div class="column4">
-				<div class="box">
-					<h3>시험일정</h3>
-					<p>Rutrum fermentum nibh in augue praesent urna congue rutrum.</p>
-					<a href="#" class="button button-small">더 알아보기</a>
-				</div>
-			</div>
-			 -->
 		</div>
 	</div>
 	</c:if>

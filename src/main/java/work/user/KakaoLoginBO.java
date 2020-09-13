@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class KakaoLoginBO {
 	private final static String K_CLIENT_ID = "36fdce19b3052adda600a08287bf5a2c"; 
-	private final static String K_REDIRECT_URI = "http://localhost/work/user/kakaoLogin.do"; 
+	private final static String K_REDIRECT_URI = "http://www.gaebalin.com/work/user/kakaoLogin.do"; 
 	public static String getAuthorizationUrl(HttpSession session) {
 		String kakaoUrl = "https://kauth.kakao.com/oauth/authorize?" + "client_id=" + 
 							K_CLIENT_ID + "&redirect_uri=" + K_REDIRECT_URI + "&response_type=code"; 
@@ -33,7 +33,7 @@ public class KakaoLoginBO {
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>(); 
 		postParams.add(new BasicNameValuePair("grant_type", "authorization_code")); 
 		postParams.add(new BasicNameValuePair("client_id", "36fdce19b3052adda600a08287bf5a2c")); // REST API KEY 
-		postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost/work/user/kakaoLogin.do")); // 리다이렉트 URI 
+		postParams.add(new BasicNameValuePair("redirect_uri", "http://www.gaebalin.com/work/user/kakaoLogin.do")); // 리다이렉트 URI 
 		postParams.add(new BasicNameValuePair("code", autorize_code)); // 로그인 과정중 얻은 code 값 
 		final HttpClient client = HttpClientBuilder.create().build(); 
 		final HttpPost post = new HttpPost(RequestUrl); 
